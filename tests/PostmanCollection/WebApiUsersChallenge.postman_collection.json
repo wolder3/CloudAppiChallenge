@@ -1,0 +1,427 @@
+{
+	"info": {
+		"_postman_id": "956d38ef-b541-4a10-8638-3d78979d650a",
+		"name": "WebApiUsersChallenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateUser",
+			"item": [
+				{
+					"name": "Post User - 201",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"name\": \"luis mendoza\",\r\n  \"email\": \"luis@gmail.com\",\r\n  \"birthDate\": \"01-02-1990\",\r\n  \"address\": {\r\n    \"id\": 0,\r\n    \"street\": \"av. la marina\",\r\n    \"state\": \"Lima\",\r\n    \"city\": \"Lima\",\r\n    \"country\": \"Peru\",\r\n    \"zip\": \"229001\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/User/createUsers",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"User",
+								"createUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post User - 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"name\": \"\",\r\n  \"email\": \"luis@gmail.com\",\r\n  \"birthDate\": \"01-02-1990\",\r\n  \"address\": {\r\n    \"id\": 0,\r\n    \"street\": \"av. la marina\",\r\n    \"state\": \"\",\r\n    \"city\": \"Lima\",\r\n    \"country\": \"Peru\",\r\n    \"zip\": \"229001\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/User/createUsers",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"User",
+								"createUsers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UpdateUser",
+			"item": [
+				{
+					"name": "Put User - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"name\": \"jesus mendoza\",\r\n  \"email\": \"jesus@gmail.com\",\r\n  \"birthDate\": \"01-02-1990\",\r\n  \"address\": {\r\n    \"id\": 1,\r\n    \"street\": \"av. la marina\",\r\n    \"state\": \"Lima\",\r\n    \"city\": \"Lima\",\r\n    \"country\": \"Peru\",\r\n    \"zip\": \"229001\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/User/updateUsersById/:userId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"User",
+								"updateUsersById",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put User - 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"name\": \"\",\r\n  \"email\": \"\",\r\n  \"birthDate\": \"01-02-1990\",\r\n  \"address\": {\r\n    \"id\": 1,\r\n    \"street\": \"\",\r\n    \"state\": \"Lima\",\r\n    \"city\": \"Lima\",\r\n    \"country\": \"Peru\",\r\n    \"zip\": \"229001\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/User/updateUsersById/:userId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"User",
+								"updateUsersById",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put User - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 8002,\r\n  \"name\": \"jesus mendoza\",\r\n  \"email\": \"jesus@gmail.com\",\r\n  \"birthDate\": \"01-02-1990\",\r\n  \"address\": {\r\n    \"id\": 8002,\r\n    \"street\": \"av. la marina\",\r\n    \"state\": \"Lima\",\r\n    \"city\": \"Lima\",\r\n    \"country\": \"Peru\",\r\n    \"zip\": \"229001\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/User/updateUsersById/:userId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"User",
+								"updateUsersById",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "8002"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GetUserById",
+			"item": [
+				{
+					"name": "Get UserById - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/User/getusersById/:userId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"User",
+								"getusersById",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get UserById - 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/User/getusersById/:userId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"User",
+								"getusersById",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "-1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get UserById - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/User/getusersById/:userId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"User",
+								"getusersById",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "8002"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GetUsers",
+			"item": [
+				{
+					"name": "Get Users - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/User/getusers",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"User",
+								"getusers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "https://challengebackendapi2022.azurewebsites.net",
+			"type": "string"
+		},
+		{
+			"key": "local",
+			"value": "http://localhost:5287",
+			"type": "string"
+		}
+	]
+}
